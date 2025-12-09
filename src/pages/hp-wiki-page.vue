@@ -1,7 +1,6 @@
 <template>
   <div class="flex flex-col items-start w-full">
 
-    <!-- Scroll Banner -->
     <div class="w-full bg-[#f2e3c6] border-l-[25px] border-r-[25px] border-[#d1b38a]
              shadow-inner shadow-[rgba(0,0,0,0.3)] drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]
              overflow-hidden box-border z-10 h-[18vh]">
@@ -11,10 +10,8 @@
       </div>
     </div>
 
-    <!-- Main Content Area -->
     <div class="w-full ">
 
-      <!-- Top Home Button -->
       <Button @click="goToHome" class="mt-5 mb-5 bg-gradient-to-b from-[#f7d67a] to-[#c68e3e] text-[#3c2a18]
                font-[HarryP] text-[1.3rem] px-8 py-3 rounded-lg cursor-pointer
                shadow-[0_5px_10px_rgba(0,0,0,0.4)]
@@ -23,11 +20,9 @@
         Go To Home
       </Button>
 
-      <!-- Page Content Container -->
       <div class="w-[90%] max-w-[1000px] mx-auto text-center py-5
                   bg-[#d1a55c] rounded-lg shadow-lg px-6">
 
-        <!-- Category Buttons -->
         <div class="flex flex-wrap justify-center gap-2 mb-6">
           <Button v-for="cat in categories" :key="cat.id" @click="selected = cat.id" :class="[
             'px-8 py-2 rounded-md transition-all duration-200 font-[HarryP] text-[#3c2a18] ',
@@ -39,7 +34,6 @@
           </Button>
         </div>
 
-        <!-- Display Component based on selected tab -->
         <Character v-if="selected === 'characters'" />
         <Spell v-if="selected === 'spells'" />
         <Book v-if="selected === 'books'" />
@@ -73,7 +67,3 @@ const categories = [
   { id: 'houses', label: 'Houses' }
 ]
 </script>
-
-<style scoped>
-/* No need to override PrimeVue Buttons since we're using native <Button> with your original colors */
-</style>

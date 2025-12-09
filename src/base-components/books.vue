@@ -1,7 +1,5 @@
 <template>
   <div class="w-full mt-6 px-4 sm:px-6 lg:px-8">
-
-    <!-- Book Display -->
     <div v-if="currentBook"
       class="flex flex-col md:flex-row items-start gap-6 max-w-4xl mx-auto bg-[rgba(255,247,230,0.9)] p-6 rounded-xl shadow">
 
@@ -21,7 +19,6 @@
       </div>
     </div>
 
-    <!-- Pagination Controls -->
     <div class="flex justify-center gap-3 mt-6">
       <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-2 bg-[#f2e3c6] rounded shadow">
         < </button>
@@ -44,18 +41,13 @@ import { useDataStore } from '@/stores/useDataStore'
 
 const store = useDataStore()
 const currentPage = ref(1)
-const itemsPerPage = 1  // one book per page
+const itemsPerPage = 1
 
-// Load books on mount
 onMounted(() => store.loadBooksPage(currentPage.value))
 
-// Compute total pages
 const totalPages = computed(() => Math.ceil(store.bookTotalCount / itemsPerPage))
 
-// Current book based on page
-const currentBook = computed(() => store.books[0] || null) // store.books is updated on page load
-
-// Pagination functions
+const currentBook = computed(() => store.books[0] || null)
 function goToPage(page: number) {
   currentPage.value = page
   store.loadBooksPage(currentPage.value)

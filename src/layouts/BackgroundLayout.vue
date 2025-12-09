@@ -3,8 +3,6 @@
     <!-- Slideshow layers -->
     <div v-for="(image, index) in images" :key="index" class="slideshow-layer"
       :style="{ backgroundImage: 'url(' + image + ')', opacity: currentIndex === index ? 1 : 0 }"></div>
-
-    <!-- Page content -->
     <router-view />
   </div>
 </template>

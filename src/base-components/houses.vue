@@ -1,16 +1,13 @@
 <template>
   <div class="mt-6">
 
-    <!-- House Grid -->
     <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
       <div v-for="house in store.houses" :key="house.house"
         class="border rounded-xl bg-[rgba(255,247,230,0.9)] shadow-sm flex flex-col overflow-hidden">
 
-        <!-- House Image -->
         <img :src="`/image/${house.house.toLowerCase()}.jpg`" alt="House Image"
           class="w-full max-h-64 object-contain rounded-t-lg mb-4" />
 
-        <!-- House Info -->
         <div class="px-4 pb-4 flex flex-col gap-1">
           <h3 class="text-xl font-semibold font-[HarryP]">{{ house.house }}</h3>
           <p><strong>Emoji:</strong> {{ house.emoji }}</p>
@@ -36,8 +33,7 @@ import { useDataStore } from '@/stores/useDataStore'
 
 const store = useDataStore()
 
-// Load all houses when the component mounts
 onMounted(() => {
-  store.loadHousesPage(1) // you can keep using your store pagination internally if needed
+  store.loadHousesPage(1)
 })
 </script>
