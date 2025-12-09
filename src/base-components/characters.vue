@@ -17,21 +17,19 @@
       </div>
     </div>
 
-    <!-- Pagination -->
     <div class="flex justify-center gap-3 mt-4">
       <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-2 bg-[#f2e3c6] rounded shadow">
-        < </button>
 
-          <button v-for="num in totalPages" :key="num" @click="goToPage(num)"
-            class="px-3 py-1 rounded shadow font-semibold"
-            :class="num === currentPage ? 'bg-[#c8b083] text-white' : 'bg-[#f2e3c6]'">
-            {{ num }}
-          </button>
+      </button>
 
-          <button @click="nextPage" :disabled="currentPage === totalPages"
-            class="px-4 py-2 bg-[#f2e3c6] rounded shadow">
-            >
-          </button>
+      <button v-for="num in totalPages" :key="num" @click="goToPage(num)" class="px-3 py-1 rounded shadow font-semibold"
+        :class="num === currentPage ? 'bg-[#c8b083] text-white' : 'bg-[#f2e3c6]'">
+        {{ num }}
+      </button>
+
+      <button @click="nextPage" :disabled="currentPage === totalPages" class="px-4 py-2 bg-[#f2e3c6] rounded shadow">
+        Next
+      </button>
     </div>
 
   </div>
@@ -46,12 +44,12 @@ const store = useDataStore()
 const currentPage = ref(1)
 const itemsPerPage = 3
 
- Compute total pages based on characters total count
+// Compute total pages based on characters total count
 const totalPages = computed(() => {
   return Math.ceil(store.charTotalCount / itemsPerPage)
 })
 
- Load first page on mount
+// Load first page on mount
 onMounted(() => store.loadCharactersPage(currentPage.value))
 
 // Pagination controls
