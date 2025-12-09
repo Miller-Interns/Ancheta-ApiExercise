@@ -6,12 +6,8 @@
              shadow-inner shadow-[rgba(0,0,0,0.3)] drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]
              overflow-hidden box-border z-10 h-[18vh]">
       <div class="px-5 py-6 text-center bg-[rgba(255,247,230,0.9)]">
-        <h1 class="font-[HarryP] text-[2.5rem] text-[#3c2a18] m-0">
-          {{ title }}
-        </h1>
-        <h5 class="mt-1 text-[1.2rem] text-[#4d3722] font-serif">
-          {{ description }}
-        </h5>
+        <h1 class="font-[HarryP] text-[2.5rem] text-[#3c2a18] m-0">{{ title }}</h1>
+        <h5 class="mt-1 text-[1.2rem] text-[#4d3722] font-serif">{{ description }}</h5>
       </div>
     </div>
 
@@ -19,38 +15,37 @@
     <div class="w-full ">
 
       <!-- Top Home Button -->
-      <button @click="goToHome()" class="mt-5 mb-5 bg-gradient-to-b from-[#f7d67a] to-[#c68e3e] text-[#3c2a18]
+      <Button @click="goToHome" class="mt-5 mb-5 bg-gradient-to-b from-[#f7d67a] to-[#c68e3e] text-[#3c2a18]
                font-[HarryP] text-[1.3rem] px-8 py-3 rounded-lg cursor-pointer
                shadow-[0_5px_10px_rgba(0,0,0,0.4)]
                transition-all duration-200 hover:-translate-y-1
                hover:from-[#f9e08f] hover:to-[#d1a55c] active:translate-y-[2px]">
         Go To Home
-      </button>
+      </Button>
 
       <!-- Page Content Container -->
       <div class="w-[90%] max-w-[1000px] mx-auto text-center py-5
                   bg-[#d1a55c] rounded-lg shadow-lg px-6">
 
-        <!-- Category Buttons (look like part of container) -->
+        <!-- Category Buttons -->
         <div class="flex flex-wrap justify-center gap-2 mb-6">
-          <button v-for="cat in categories" :key="cat.id" @click="selected = cat.id" :class="[
-            'px-4 py-2 rounded-md transition-all duration-200 text-[#3c2a18] font-[HarryP]',
+          <Button v-for="cat in categories" :key="cat.id" @click="selected = cat.id" :class="[
+            'px-8 py-2 rounded-md transition-all duration-200 font-[HarryP] text-[#3c2a18] ',
             selected === cat.id
               ? 'bg-[#f7d67a] shadow-lg'
               : 'bg-[#bfa06b] shadow-inner text-gray-600 hover:bg-[#c7a77a]'
           ]">
             {{ cat.label }}
-          </button>
+          </Button>
         </div>
 
-        <!-- Components inside brown container -->
+        <!-- Display Component based on selected tab -->
         <Character v-if="selected === 'characters'" />
         <Spell v-if="selected === 'spells'" />
         <Book v-if="selected === 'books'" />
-        <House v-if="selected === 'houses'" />
+        <HouseGrid v-if="selected === 'houses'" />
 
       </div>
-
     </div>
   </div>
 </template>
@@ -58,7 +53,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import House from '@/base-components/houses.vue'
+import HouseGrid from '@/base-components/houses.vue'
 import Spell from '@/base-components/spells.vue'
 import Character from '@/base-components/characters.vue'
 import Book from '@/base-components/books.vue'
@@ -71,7 +66,6 @@ const description = 'A Wiki for all things related to Harry Potter.'
 
 const goToHome = () => router.push({ name: 'Home' })
 
-// Categories for buttons
 const categories = [
   { id: 'characters', label: 'Characters' },
   { id: 'spells', label: 'Spells' },
@@ -79,3 +73,7 @@ const categories = [
   { id: 'houses', label: 'Houses' }
 ]
 </script>
+
+<style scoped>
+/* No need to override PrimeVue Buttons since we're using native <Button> with your original colors */
+</style>

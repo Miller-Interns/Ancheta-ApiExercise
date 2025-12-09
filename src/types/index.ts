@@ -1,5 +1,3 @@
-// src/types/index.ts
-
 export interface Book {
     number: number;
     title: string;
