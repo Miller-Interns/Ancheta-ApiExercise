@@ -2,6 +2,8 @@ API Used <br><br>
 https://potterapi-fedeperin.vercel.app/en
 https://github.com/fedeperin/potterapi?tab=readme-ov-file)
 <br>
+P.S. Disregard the background picture being sort of being repeated, that is due to the taking of the full page picture.
+<br>
 ---
 Home Page
 <br><br>
@@ -9,7 +11,7 @@ Home Page
 ---
 Characters Content Page
 <br><br>
-<img width="1920" height="1246" alt="Vite App (6)" src="https://github.com/user-attachments/assets/5089e967-120f-45f6-a016-6e9b3b98bf2f" />
+<img width="1920" height="1317" alt="Vite App (10)" src="https://github.com/user-attachments/assets/d0faaf95-9c38-4a95-8fbf-02b3fadefe32" />
 ---
 Spells Content Page
 <br><br>
