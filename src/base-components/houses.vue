@@ -14,9 +14,13 @@
           <p><strong>Founder:</strong> {{ house.founder }}</p>
 
           <p class="mt-2 font-semibold">Colors:</p>
-          <ul v-if="house.colors.length" class="list-disc ml-6 text-sm">
-            <li v-for="(color, i) in house.colors" :key="i">{{ color }}</li>
+          <ul v-if="house.colors.length" class="text-center text-sm">
+            <li v-for="(color, i) in house.colors" :key="i" class="flex items-center justify-center gap-2">
+              <span class="w-2 h-2 bg-[#3c2a18] rounded-full inline-block"></span>
+              <span>{{ color }}</span>
+            </li>
           </ul>
+
           <p v-else class="italic text-gray-600 text-sm">None</p>
 
           <p class="mt-2"><strong>Animal:</strong> {{ house.animal }}</p>
