@@ -1,14 +1,20 @@
 <template>
-  <div class="flex flex-col items-start w-full">
 
-    <div class="w-full bg-[#f2e3c6] border-l-[25px] border-r-[25px] border-[#d1b38a]
-             shadow-inner shadow-[rgba(0,0,0,0.3)] drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]
-             overflow-hidden box-border z-10 h-[18vh]">
-      <div class="px-5 py-6 text-center bg-[rgba(255,247,230,0.9)]">
-        <h1 class="font-[HarryP] text-[2.5rem] text-[#3c2a18] m-0">{{ title }}</h1>
-        <h5 class="mt-1 text-[1.2rem] text-[#4d3722] font-serif">{{ description }}</h5>
+  <div class="flex flex-col items-start w-full">
+    <div class="w-full bg-[#f2e3c6] border-l-[15px] border-r-[15px] md:border-l-[25px] md:border-r-[25px] border-[#d1b38a]
+         shadow-inner shadow-[rgba(0,0,0,0.3)] drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]
+         overflow-hidden box-border z-10
+         min-h-[120px] sm:min-h-[150px] md:h-[18vh] flex items-center justify-center">
+      <div class="px-4 sm:px-6 py-4 sm:py-6 text-center bg-[rgba(255,247,230,0.9)] w-full">
+        <h1 class="font-[HarryP] text-[1.8rem] sm:text-[2.2rem] md:text-[2.5rem] text-[#3c2a18] m-0 leading-tight">
+          {{ title }}
+        </h1>
+        <h5 class="mt-1 text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] text-[#4d3722] font-serif leading-tight">
+          {{ description }}
+        </h5>
       </div>
     </div>
+
 
     <div class="w-full ">
 
@@ -24,14 +30,17 @@
                   bg-[#d1a55c] rounded-lg shadow-lg px-6">
 
         <div class="flex flex-wrap justify-center gap-2 mb-6">
-          <Button v-for="cat in categories" :key="cat.id" @click="selected = cat.id" :class="[
-            'px-8 py-2 rounded-md transition-all duration-200 font-[HarryP] text-[#3c2a18] ',
-            selected === cat.id
-              ? 'bg-[#f7d67a] shadow-lg'
-              : 'bg-[#bfa06b] shadow-inner text-gray-600 hover:bg-[#c7a77a]'
-          ]">
-            {{ cat.label }}
-          </Button>
+          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+            <Button v-for="cat in categories" :key="cat.id" @click="selected = cat.id" :class="[
+              'px-6 py-2 rounded-md transition-all duration-200 font-[HarryP] text-[#3c2a18]',
+              selected === cat.id
+                ? 'bg-[#f7d67a] shadow-lg'
+                : 'bg-[#bfa06b] shadow-inner text-gray-600 hover:bg-[#c7a77a]'
+            ]">
+              {{ cat.label }}
+            </Button>
+          </div>
+
         </div>
 
         <Character v-if="selected === 'characters'" />

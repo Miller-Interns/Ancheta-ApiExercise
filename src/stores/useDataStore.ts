@@ -45,7 +45,7 @@ export const useDataStore = defineStore('dataStore', () => {
     const books = ref<Book[]>([])
     const bookTotalCount = ref(0)
     const bookCurrentPage = ref(1)
-    const bookItemsPerPage = ref(1) // one book per page
+    const bookItemsPerPage = ref(1)
     const bookTotalPages = ref(1)
     const { data: bookData, totalCount: bookFetchedTotal, fetchData: fetchBooks, loading: bookLoading, error: bookError } = useFetchBooks()
 
