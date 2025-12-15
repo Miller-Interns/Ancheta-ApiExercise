@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col justify-center items-center">
 
-    <!-- Scroll Container -->
     <div class="bg-[rgba(255,247,230,0.7)] px-[60px] py-[40px]
              border-l-[20px] border-r-[20px] border-[#d1b38a]
              rounded-lg text-center mb-5
@@ -15,7 +14,6 @@
       </h5>
     </div>
 
-    <!-- Magic Button -->
     <button class="bg-gradient-to-b from-[#f7d67a] to-[#c68e3e] text-[#3c2a18]
              px-8 py-3 rounded-xl cursor-pointer font-[HarryP] text-[1.3rem]
              shadow-[0_5px_10px_rgba(0,0,0,0.4)]

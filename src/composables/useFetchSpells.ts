@@ -8,7 +8,6 @@ export function useFetchSpells() {
     const loading = ref(false)
     const error = ref<string | null>(null)
 
-    // Fetch spells with offset & limit for pagination
     const fetchData = async (offset = 0, limit = 6) => {
         loading.value = true
         error.value = null

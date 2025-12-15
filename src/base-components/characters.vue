@@ -6,10 +6,8 @@
          flex flex-col sm:flex-row gap-4
          bg-[rgba(255,247,230,0.9)]">
 
-        <!-- Character Image -->
         <img :src="char.image" alt="Character Image" class="w-32 h-32 object-cover rounded-lg mx-auto sm:mx-0" />
 
-        <!-- Character Details -->
         <div class="flex-1 text-center sm:text-left">
           <h3 class="font-semibold text-lg">{{ char.fullName }}</h3>
           <p><strong>Nickname:</strong> {{ char.nickname }}</p>
@@ -61,15 +59,12 @@ const store = useDataStore();
 const currentPage = ref(1);
 const itemsPerPage = 3;
 
-// Compute total pages based on characters total count
 const totalPages = computed(() => Math.ceil(store.charTotalCount / itemsPerPage));
 
-// Load first page on mount
 onMounted(() => {
   store.loadCharactersPage(currentPage.value);
 });
 
-// Pagination controls
 function nextPage(): void {
   if (currentPage.value < totalPages.value) {
     currentPage.value++;

@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import homePage from '@/pages/home-page.vue'
 import Wiki from '@/pages/hp-wiki-page.vue'
 
-// Enum for route names
 export enum RouteName {
   HOME = 'Home',
   WIKI = 'Wiki'

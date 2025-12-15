@@ -1,4 +1,4 @@
-// src/composables/useFetchCharacters.ts
+
 import { ref } from 'vue'
 import axios from 'axios'
 import type { Character } from '@/types'
